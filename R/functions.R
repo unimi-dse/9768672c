@@ -8,24 +8,6 @@ import_data <- function(){
 }
 
 
-#to install the packages needed to work (included in section "Dependencies" in the DESCRIPTION-file)
-
-work_libraries <- function(c_pack){
-  if( class(c_pack) != "character")
-    return(NULL)
-  lapply(c_pack, install.packages,character.only=TRUE)
-}
-
-
-#to require the package once you've istalled them
-
-require_workfunc <- function(c_pack){
-  if( class(c_pack) != "character")
-    return(NULL)
-  lapply(c_pack, require, character.only=TRUE)
-}
-
-
 #to apply a function (sum, mean, var,...) to a dataset creating another element in a list
 
 add_listfunc <- function(df,func,character){
