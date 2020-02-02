@@ -1,7 +1,7 @@
 #to import the dataset locally from a .csv file
 
-import_data <- function(){
-  dataset_df<-read.csv('https://raw.githubusercontent.com/unimi-dse/9768672c/master/data/Tesla%20top%205.csv', sep = ',')
+import_data <- function(dataset){
+  dataset_df<-read.csv(dataset, sep = ',')
   rownames(dataset_df)<-dataset_df[[1]]
   dataset_df[1]<-NULL
   return(dataset_df)
