@@ -1,7 +1,7 @@
 #to import the dataset locally from a .csv file
 
 import_data <- function(dataset){
-  dataset_df<-read.csv(system.file(dataset,package="teslasales"))
+  dataset_df<-read.csv(dataset, sep = ';'))
   rownames(dataset_df)<-dataset_df[[1]]
   dataset_df[1]<-NULL
   return(dataset_df)
