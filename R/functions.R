@@ -2,7 +2,7 @@
 
 import_data <- function(){
   dataset<-system.file("extdata","dataset.rda",package="teslasales")
-  dataset_df<-as.dataframe(dataset)
+  dataset_df<-as.data.frame(dataset)
   rownames(dataset_df)<-dataset_df[[1]]
   dataset_df[1]<-NULL
   return(dataset_df)
