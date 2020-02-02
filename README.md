@@ -6,6 +6,9 @@ Tesla and built-in functions for deeper examination.
 
     Install the package by running the command:
     > devtools::install_github("unimi-dse/9768672c")
+    once installed, run the commands:
+    require("teslasales")
+    import_data()
 
 ### Dependency with other R-packages
 
