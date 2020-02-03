@@ -1,4 +1,5 @@
 Mid-term Project: Coding for Data Science academic Year 2019/2020
+            Teslasales Package
 -----------------------------------------------------------------
 
 The package contains data-set, statistical analysis of the sales of
