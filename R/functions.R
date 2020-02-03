@@ -8,6 +8,7 @@
 #'
 #' @examples
 #' import_data()
+#' @export
 
 import_data <- function(){
   dataset_df<-read.csv('https://raw.githubusercontent.com/unimi-dse/9768672c/master/data/Tesla%20top%205.csv', sep = ',')
