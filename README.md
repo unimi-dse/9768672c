@@ -7,6 +7,7 @@ output: html_document
 
 
 Mid-term Project: Coding for Data Science academic Year 2019/2020
+
    Teslasales Package
 -----------------------------------------------------------------
 
