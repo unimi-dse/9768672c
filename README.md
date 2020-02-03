@@ -39,3 +39,7 @@ The packages contains a dataset from "Tesla Europe Registration Stats" (https://
 
 -   zoo: package for creating time series objects
 -   na.tools: package useful to work with missing datavisualization (plotting)
+-   RColorBrewer: package for customizing the colours of the plot with
+    plotly
+-   lubridate: package for convert date into quarterly
+-   plotly: package used for data visualization (plotting)
