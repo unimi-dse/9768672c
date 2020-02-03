@@ -16,7 +16,7 @@ The package contains a dataset of the Sales of Tesla Motorcars in five European 
 
 The packages contains a dataset from "Tesla Europe Registration Stats" (https://teslamotorsclub.com/tmc/threads/tesla-europe-registration-stats.61651/) accuratley modified in order to highlight the most relevant data.
 
-      #add dataset documentation
+      #ADD DATASET DOCUMENTATION (NOT COMPLETE!!!)
       > ?teslasales::repo  
    
 ### Usage
