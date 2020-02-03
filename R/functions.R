@@ -18,10 +18,6 @@ import_data <- function(){
   return(dataset_df)
 }
 
-import_data <- function() {
-  df <- read_csv(system.file("extdata", "train.csv", package="titanicanalysis"))
-  return(df)
-}
 
 #' Apply a function (sum, mean, var,...) to a dataset creating another element in a list
 #'
