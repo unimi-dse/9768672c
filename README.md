@@ -34,7 +34,7 @@ The packages contains a dataset from "Tesla Europe Registration Stats" (https://
       > require('teslasales')
          import_data()
    
-   #Functions
+   Functions
 -----------------------------------------------------------------
 
 ### import_data()
