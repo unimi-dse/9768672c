@@ -1,4 +1,13 @@
-#to import the dataset from url of a .csv file
+#' Import data and filter the original dataset from "Tesla Europe Registration Stats"
+#'
+#' This function grabs the dataset of the sales of Tesla in Europe form 2013 to 2019 and store the data frame to Global Environment.
+#' Data taken from: https://teslamotorsclub.com/tmc/threads/tesla-europe-registration-stats.61651/.
+#' Run this first function to recall the dataset.
+#'
+#' @return data.frame
+#'
+#' @examples
+#' import_data()
 
 import_data <- function(){
   dataset_df<-read.csv("https://raw.githubusercontent.com/unimi-dse/9768672c/master/data/Tesla%20top%205.csv", sep=",")
