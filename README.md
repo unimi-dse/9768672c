@@ -8,7 +8,7 @@ output: html_document
 
 Mid-term Project: Coding for Data Science academic Year 2019/2020
 
-   Teslasales Package
+Teslasales Package
 -----------------------------------------------------------------
 
 ### Introduction
@@ -62,7 +62,8 @@ The function stat_ts() takes as arguments a zoo class object (time series) and a
 The function data_statplotly() takes as arguments a variable name assigned to "stat_ts() function", a character string for the name of the plot and two others character strings for the name of both the x and y axis respectively.
 
 
-### Dependency with other R-packages
+   Dependency with other R-packages
+-----------------------------------------------------------------
 
 -   zoo: package for creating time series objects
 -   na.tools: package useful to work with missing datavisualization (plotting)
