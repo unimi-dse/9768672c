@@ -5,8 +5,8 @@ date: "02/03/2020"
 output: html_document
 ---
 
-Mid-term Project: Coding for Data Science academic Year 2019/2020
 
+Mid-term Project: Coding for Data Science academic Year 2019/2020
    Teslasales Package
 -----------------------------------------------------------------
 
