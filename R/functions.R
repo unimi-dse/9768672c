@@ -37,8 +37,6 @@ import_data <- function() {
 #' @export
 #' @import readr
 
-devtools::document()
-
 add_listfunc <- function(df,func,character){
   mat_df<-as.matrix(df)
   mat_func <-apply(mat_df,MARGIN=2,FUN=func)
