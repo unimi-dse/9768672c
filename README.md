@@ -4,7 +4,8 @@ Mid-term Project: Coding for Data Science academic Year 2019/2020
 -----------------------------------------------------------------
 
 ### Introduction
-The package contains a dataset of the Sales of Tesla Motorcars in five European Countries (Norw, Ned, Swi, Ger and UK).The dataset is used for statistical purposes (data analysis, visualization, ecc.) and contains built-in functions for deeper examination of each task.
+The package contains a dataset of the Sales of Tesla Motorcars in five European Countries (Norw, Ned, Swi, Ger and UK).
+The dataset is used for statistical purposes (data analysis, visualization, ecc.) and contains built-in functions for deeper examination of each task.
 
 ### Installation
 
