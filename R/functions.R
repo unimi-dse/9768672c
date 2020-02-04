@@ -46,7 +46,7 @@ add_listfunc <- function(df,func,character='Function'){
 
 #to create a barplot with plotly
 
-data_barplotly <- function(dataset,main=,xname='Countries',yname='N° of sales'){
+data_barplotly <- function(dataset,main='Barplot',xname='Countries',yname='N° of sales'){
   data_ly<-as.matrix(dataset[[2]])
   plot_dataset<- plot_ly(x =colnames(data_ly),
                          y = data_ly[1,],
@@ -71,7 +71,7 @@ ts_data <- function(dataset,n_ts){
 
 #to plot the time series with a scatter and lines plot
 
-data_tsplotly<-function(dataset,n_ts,main,yname='N° of sales',xname='Dates'){
+data_tsplotly<-function(dataset,n_ts,main='Time series plot',yname='N° of sales',xname='Dates'){
   data_qtr<-as.Date.character(rownames(dataset))
   data_mat<-as.matrix(dataset)
   plot_ts<-plot_ly(x=data_qtr,y=data_mat[,n_ts], type='scatter',mode='lines+markers',
@@ -84,7 +84,7 @@ data_tsplotly<-function(dataset,n_ts,main,yname='N° of sales',xname='Dates'){
 
 #to plot two time series in the same graph for comparison in the trends
 
-data_tracesl<-function(dataset,n_ts1,n_ts2,main,second,title,yname='N° of sales',xname='Dates'){
+data_tracesl<-function(dataset,n_ts1,n_ts2,main,second,title='Comparison Time series plot',yname='N° of sales',xname='Dates'){
 data_qtr<-as.Date.character(rownames(dataset))
 data_mat<-as.matrix(dataset)
 df<-as.data.frame(data_mat[,c(n_ts1,n_ts2)])
@@ -118,7 +118,7 @@ stat_ts<-function(zoo_ts,stat){
 
 #to plot a time series statistic with plotly
 
-data_statplotly<-function(autoc_dataset,main,yname='Values',xname='lags'){
+data_statplotly<-function(autoc_dataset,main='Moments of a Time series',yname='Values',xname='lags'){
   acd <- data.frame(lag=autoc_dataset$lag, acf=autoc_dataset$acf)
   plot_autoc<-plot_ly(x=acd$lag,y=acd$acf,mode='markers',type='scatter') %>%
     layout(title = main, yaxis = list(title=yname), xaxis = list(title=xname))
