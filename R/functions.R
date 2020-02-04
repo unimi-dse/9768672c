@@ -70,7 +70,17 @@ data_barplotly <- function(dataset,main='Barplot',xname='Countries',yname='N° o
 }
 
 
-#to create a time series with zoo of the dataset
+#' Create a time series of a dataframe with the R-package zoo
+#'
+#' @param dataset A dataframe.
+#' @param n_ts Number of the column of the dataframe which will generate a time series.
+#'
+#' @return A class zoo object.
+#' @export
+#'
+#' @examples
+#' dataset<-data.frame()
+#' ts_data(dataset,1)
 
 ts_data <- function(dataset,n_ts){
   df_data<-as.data.frame(dataset)
