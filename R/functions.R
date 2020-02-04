@@ -18,7 +18,7 @@ import_data <- function(){
   return(dataset_df)
 }
 
-remove(con)
+
 #' Apply a function (sum, mean, var,...) to a dataset creating another element in a list
 #'
 #' @param df A dataframe.
@@ -43,12 +43,12 @@ add_listfunc <- function(df,func,character='Function'){
 }
 
 
-#'#' Create a barplot of the dataframe with plotly
+#' Create a barplot of the dataframe with plotly
 #'
 #' @param dataset A dataframe resulting by the function "add_listfunc".
 #' @param main A character string for the name of the plot (default = 'Barplot').
 #' @param xname A character string for the name of the x-axe (default = 'Countries')
-#' @param yname A character string for the name of the y-axe (default = 'N° of sales')
+#' @param yname A character string for the name of the y-axe (default = 'NÂ° of sales')
 #'
 #' @return A barplot for the given arguments.
 #' @export
@@ -58,7 +58,7 @@ add_listfunc <- function(df,func,character='Function'){
 #' data_barplotly(dataset, 'Barplot of dataset', 'X-axe', 'Y-axe')
 
 
-data_barplotly <- function(dataset,main='Barplot',xname='Countries',yname='N° of sales'){
+data_barplotly <- function(dataset,main='Barplot',xname='Countries',yname='NÂ° of sales'){
   data_ly<-as.matrix(dataset[[2]])
   plot_dataset<- plot_ly(x =colnames(data_ly),
                          y = data_ly[1,],
@@ -83,7 +83,7 @@ ts_data <- function(dataset,n_ts){
 
 #to plot the time series with a scatter and lines plot
 
-data_tsplotly<-function(dataset,n_ts,main='Time series plot',yname='N° of sales',xname='Dates'){
+data_tsplotly<-function(dataset,n_ts,main='Time series plot',yname='NÂ° of sales',xname='Dates'){
   data_qtr<-as.Date.character(rownames(dataset))
   data_mat<-as.matrix(dataset)
   plot_ts<-plot_ly(x=data_qtr,y=data_mat[,n_ts], type='scatter',mode='lines+markers',
@@ -96,7 +96,7 @@ data_tsplotly<-function(dataset,n_ts,main='Time series plot',yname='N° of sales'
 
 #to plot two time series in the same graph for comparison in the trends
 
-data_tracesl<-function(dataset,n_ts1,n_ts2,main,second,title='Comparison Time series plot',yname='N° of sales',xname='Dates'){
+data_tracesl<-function(dataset,n_ts1,n_ts2,main,second,title='Comparison Time series plot',yname='NÂ° of sales',xname='Dates'){
   data_qtr<-as.Date.character(rownames(dataset))
   data_mat<-as.matrix(dataset)
   df<-as.data.frame(data_mat[,c(n_ts1,n_ts2)])
