@@ -25,8 +25,18 @@ The dataset is used for statistical purposes (data analysis, visualization, ecc.
 
 The packages contains a dataset from "Tesla Europe Registration Stats" (https://teslamotorsclub.com/tmc/threads/tesla-europe-registration-stats.61651/) accuratley modified in order to highlight the most relevant data.
 
-      #ADD DATASET DOCUMENTATION (NOT COMPLETE!!!)
-      > ?teslasales::repo  
+### Documentation
+
+      #To see the documentation of each function inside the package:
+      
+      > ?import_data()
+        ?add_listfunc()
+        ?data_barplotly
+        ?ts_data()
+        ?data_tsplotly()
+        ?data_tracesl()
+        ?stat_ts() 
+        ?data_statplotly()
    
 ### Usage
 
