@@ -2,16 +2,24 @@
 % Please edit documentation in R/functions.R
 \name{stat_ts}
 \alias{stat_ts}
-\title{Title}
+\title{To inspect the moments of a time series}
 \usage{
 stat_ts(zoo_ts, stat)
 }
 \arguments{
-\item{stat}{}
+\item{zoo_ts}{A class 'zoo' object.}
+
+\item{stat}{A character string chosen between: "correlation", "covariance", "partial"
+or a character vector containing two or more of them.}
 }
 \value{
-
+A object of class 'acf'.
 }
 \description{
-Title
+This function allows you to inspect the values of the correlation, covariance
+and partial autocorrelation starting by an object of class zoo (time series).
+}
+\examples{
+obj_zoo<-zoo(x = data.frame(), order.by = as.Date(c()))
+stat_ts(obj_zoo, 'correlation')
 }

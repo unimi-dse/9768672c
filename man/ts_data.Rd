@@ -12,7 +12,7 @@ ts_data(dataset, n_ts)
 \item{n_ts}{Number of the column of the dataframe which will generate a time series.}
 }
 \value{
-A class zoo object.
+A class 'zoo' object.
 }
 \description{
 This function creates a time series of the dataset with teh R-package 'zoo'

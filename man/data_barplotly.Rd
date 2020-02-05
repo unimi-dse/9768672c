@@ -16,16 +16,16 @@ data_barplotly(
 
 \item{main}{A character string for the name of the plot (default = 'Barplot').}
 
-\item{xname}{A character string for the name of the x-axe (default = 'Countries')}
+\item{xname}{A character string for the name of the x-axe (default = 'Countries').}
 
-\item{yname}{A character string for the name of the y-axe (default = 'N° of sales')}
+\item{yname}{A character string for the name of the y-axe (default = 'Number of sales').}
 }
 \value{
-A barplot for the given arguments.
+The plot for the selected arguments.
 }
 \description{
 This function allows to crate a coloured barplot using the R-package plotly
-of the second element of the list deriving by the add_listfunc().
+of the second element of the list deriving by the function: add_listfunc().
 }
 \examples{
 dataset<-add_listfunction(df,func,character)

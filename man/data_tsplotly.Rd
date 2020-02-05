@@ -19,9 +19,9 @@ data_tsplotly(
 
 \item{main}{A character string for the title of the plot (default = 'Time series plot')}
 
-\item{yname}{A character string for the name of the x-axe (default = 'Dates')}
+\item{yname}{A character string for the name of the x-axe (default = 'Number of sales')}
 
-\item{xname}{A character string for the name of the y-axe (default = 'Number of sales')}
+\item{xname}{A character string for the name of the y-axe (default = 'Dates')}
 }
 \value{
 The plot for the selected arguments.
@@ -32,5 +32,5 @@ the R-package 'plotly'.
 }
 \examples{
 dataset<-data.frame()
-data_tsplotly(dataset, 1, 'Graph', 'Values', 'Dates')
+data_tsplotly(dataset, 1, 'Graph', 'Values')
 }

@@ -2,21 +2,33 @@
 % Please edit documentation in R/functions.R
 \name{data_statplotly}
 \alias{data_statplotly}
-\title{Title}
+\title{To plot a time series statistic (moment)}
 \usage{
 data_statplotly(
   autoc_dataset,
   main = "Moments of a Time series",
   yname = "Values",
-  xname = "lags"
+  xname = "Lags"
 )
 }
 \arguments{
-\item{xname}{}
+\item{autoc_dataset}{A class 'acf' object resulting by the function: "stat_ts()".}
+
+\item{main}{A character string for the name of the plot (default= 'Moments of a Time series').}
+
+\item{yname}{A character string for the name of the y-axe (default = 'Values').}
+
+\item{xname}{A character string for the name of the x-axe (default = 'Lags').}
 }
 \value{
-
+The plot for the selected arguments.
 }
 \description{
-Title
+This function allows to do a basic scatterplot with the R-package 'plotly'
+of the class 'acf' object deriving by the function: stat_ts().
+}
+\examples{
+obj_zoo<-zoo(x = data.frame(), order.by = as.Date(c()))
+object_acf<-stat_ts(obj_zoo,'correlation')
+data_statplotly(object_acf,'Basic plot')
 }

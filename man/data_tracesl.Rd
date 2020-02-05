@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions.R
 \name{data_tracesl}
 \alias{data_tracesl}
-\title{Title}
+\title{Plot two time series from a dataset in the same linegraph}
 \usage{
 data_tracesl(
   dataset,
@@ -11,16 +11,35 @@ data_tracesl(
   main,
   second,
   title = "Comparison Time series plot",
-  yname = "N° of sales",
+  yname = "Number of sales",
   xname = "Dates"
 )
 }
 \arguments{
-\item{xname}{}
+\item{dataset}{A dataframe.}
+
+\item{n_ts1}{A number referring to the colum of the dataset to plot as a time series.}
+
+\item{n_ts2}{A number referring to the colum of the dataset to plot as a time series.}
+
+\item{main}{A character string for the name of the first time series.}
+
+\item{second}{A character string for the name of the second time series.}
+
+\item{title}{A character string for the title of the plot (default = 'Comparison Time series plot').}
+
+\item{yname}{A character string for the name of the y-axe (default = 'Number of sales').}
+
+\item{xname}{A character string for the name of the x-axe (default = 'Dates').}
 }
 \value{
-
+The plot for the selected arguments.
 }
 \description{
-Title
+This function allows comparisons in trends between two timeseries selected
+from a dataset and includes a slider to better select the periods of the analysis.
+}
+\examples{
+dataset<-data.frame()
+data_tracesl(dataset,1,2,'High school', 'University', 'Grades in school','Grades')
 }

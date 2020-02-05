@@ -11,7 +11,7 @@ add_listfunc(df, func, character = "Function")
 
 \item{func}{A character string with the function to apply.}
 
-\item{character}{A character string for the name of the element added to the list}
+\item{character}{A character string for the name of the element added to the list (default = 'Function').}
 }
 \value{
 list
