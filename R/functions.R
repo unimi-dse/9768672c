@@ -26,7 +26,7 @@ import_data <- function(){
 #'
 #' @param df A dataframe.
 #' @param func A character string with the function to apply.
-#' @param character A character string for the name of the element added to the list
+#' @param character A character string for the name of the element added to the list (default = 'Function').
 #'
 #' @return list
 #'
@@ -49,14 +49,14 @@ add_listfunc <- function(df,func,character='Function'){
 #' Create a barplot of the dataframe
 #'
 #' @description This function allows to crate a coloured barplot using the R-package plotly
-#' of the second element of the list deriving by the add_listfunc().
+#' of the second element of the list deriving by the function: add_listfunc().
 #'
 #' @param dataset A dataframe resulting by the function "add_listfunc".
 #' @param main A character string for the name of the plot (default = 'Barplot').
-#' @param xname A character string for the name of the x-axe (default = 'Countries')
-#' @param yname A character string for the name of the y-axe (default = 'N° of sales')
+#' @param xname A character string for the name of the x-axe (default = 'Countries').
+#' @param yname A character string for the name of the y-axe (default = 'Number of sales').
 #'
-#' @return A barplot for the given arguments.
+#' @return The plot for the selected arguments.
 #' @export
 #'
 #' @examples
@@ -84,7 +84,7 @@ data_barplotly <- function(dataset,main='Barplot',xname='Countries',yname='Numbe
 #' @param dataset A dataframe.
 #' @param n_ts Number of the column of the dataframe which will generate a time series.
 #'
-#' @return A class zoo object.
+#' @return A class 'zoo' object.
 #' @export
 #'
 #' @examples
@@ -109,15 +109,15 @@ ts_data <- function(dataset,n_ts){
 #' @param dataset A dataframe.
 #' @param n_ts A number referring to the colum of the dataset to plot as a time series.
 #' @param main A character string for the title of the plot (default = 'Time series plot')
-#' @param yname A character string for the name of the x-axe (default = 'Dates')
-#' @param xname A character string for the name of the y-axe (default = 'Number of sales')
+#' @param yname A character string for the name of the x-axe (default = 'Number of sales')
+#' @param xname A character string for the name of the y-axe (default = 'Dates')
 #'
 #' @return The plot for the selected arguments.
 #' @export
 #'
 #' @examples
 #' dataset<-data.frame()
-#' data_tsplotly(dataset, 1, 'Graph', 'Values', 'Dates')
+#' data_tsplotly(dataset, 1, 'Graph', 'Values')
 
 
 data_tsplotly<-function(dataset,n_ts,main='Time series plot',yname='Number of sales',xname='Dates'){
@@ -131,26 +131,29 @@ data_tsplotly<-function(dataset,n_ts,main='Time series plot',yname='Number of sa
 }
 
 
-#to plot two time series in the same graph for comparison in the trends
-
-#' Title
+#' Plot two time series from a dataset in the same linegraph
 #'
-#' @param dataset
-#' @param n_ts1
-#' @param n_ts2
-#' @param main
-#' @param second
-#' @param title
-#' @param yname
-#' @param xname
+#' @description This function allows comparisons in trends between two timeseries selected
+#' from a dataset and includes a slider to better select the periods of the analysis.
 #'
-#' @return
+#' @param dataset A dataframe.
+#' @param n_ts1 A number referring to the colum of the dataset to plot as a time series.
+#' @param n_ts2 A number referring to the colum of the dataset to plot as a time series.
+#' @param main A character string for the name of the first time series.
+#' @param second A character string for the name of the second time series.
+#' @param title A character string for the title of the plot (default = 'Comparison Time series plot').
+#' @param yname A character string for the name of the y-axe (default = 'Number of sales').
+#' @param xname A character string for the name of the x-axe (default = 'Dates').
+#'
+#' @return The plot for the selected arguments.
 #' @export
 #'
 #' @examples
+#' dataset<-data.frame()
+#' data_tracesl(dataset,1,2,'High school', 'University', 'Grades in school','Grades')
 
 
-data_tracesl<-function(dataset,n_ts1,n_ts2,main,second,title='Comparison Time series plot',yname='N° of sales',xname='Dates'){
+data_tracesl<-function(dataset,n_ts1,n_ts2,main,second,title='Comparison Time series plot',yname='Number of sales',xname='Dates'){
   data_qtr<-as.Date.character(rownames(dataset))
   data_mat<-as.matrix(dataset)
   df<-as.data.frame(data_mat[,c(n_ts1,n_ts2)])
@@ -173,17 +176,21 @@ data_tracesl<-function(dataset,n_ts1,n_ts2,main,second,title='Comparison Time se
 }
 
 
-#to do some statistics with the time series (correlation,covariance, partial autocorr)
-
-#' Title
+#' To inspect the moments of a time series
 #'
-#' @param zoo_ts
-#' @param stat
+#' @description This function allows you to inspect the values of the correlation, covariance
+#' and partial autocorrelation starting by an object of class zoo (time series).
 #'
-#' @return
+#' @param zoo_ts A class 'zoo' object.
+#' @param stat A character string chosen between: "correlation", "covariance", "partial"
+#' or a character vector containing two or more of them.
+#'
+#' @return A object of class 'acf'.
 #' @export
 #'
 #' @examples
+#' obj_zoo<-zoo(x = data.frame(), order.by = as.Date(c()))
+#' stat_ts(obj_zoo, 'correlation')
 
 
 stat_ts<-function(zoo_ts,stat){
@@ -195,20 +202,26 @@ stat_ts<-function(zoo_ts,stat){
 
 #to plot a time series statistic with plotly
 
-#' Title
+#' To plot a time series statistic (moment)
 #'
-#' @param autoc_dataset
-#' @param main
-#' @param yname
-#' @param xname
+#' @description This function allows to do a basic scatterplot with the R-package 'plotly'
+#' of the class 'acf' object deriving by the function: stat_ts().
 #'
-#' @return
+#' @param autoc_dataset A class 'acf' object resulting by the function: "stat_ts()".
+#' @param main A character string for the name of the plot (default= 'Moments of a Time series').
+#' @param yname A character string for the name of the y-axe (default = 'Values').
+#' @param xname A character string for the name of the x-axe (default = 'Lags').
+#'
+#' @return The plot for the selected arguments.
 #' @export
 #'
 #' @examples
+#' obj_zoo<-zoo(x = data.frame(), order.by = as.Date(c()))
+#' object_acf<-stat_ts(obj_zoo,'correlation')
+#' data_statplotly(object_acf,'Basic plot')
 
 
-data_statplotly<-function(autoc_dataset,main='Moments of a Time series',yname='Values',xname='lags'){
+data_statplotly<-function(autoc_dataset,main='Moments of a Time series',yname='Values',xname='Lags'){
   acd <- data.frame(lag=autoc_dataset$lag, acf=autoc_dataset$acf)
   plot_autoc<-plot_ly(x=acd$lag,y=acd$acf,mode='markers',type='scatter') %>%
     layout(title = main, yaxis = list(title=yname), xaxis = list(title=xname))
