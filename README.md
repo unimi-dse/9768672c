@@ -46,6 +46,7 @@ The packages contains a dataset from "Tesla Europe Registration Stats" (https://
    
    Functions
 -----------------------------------------------------------------
+!Most of the functions includes arguments which, if not specified, will have as value the default one indicated inside the documentation!
 
 ### import_data()
 The function import_data() allows to have the dataset in the global environment as a dataframe.
