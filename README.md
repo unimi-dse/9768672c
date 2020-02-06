@@ -1,7 +1,7 @@
 ---
 title: "README"
 author: "Francesco Lazzara"
-date: "02/03/2020"
+date: "02/06/2020"
 output: html_document
 ---
 
@@ -30,13 +30,11 @@ The packages contains a dataset from "Tesla Europe Registration Stats" (https://
       #To see the documentation of each function inside the package:
       
       > ?import_data()
-        ?add_listfunc()
-        ?data_barplotly
+        ?barplotly_func()
         ?ts_data()
         ?data_tsplotly()
         ?data_tracesl()
-        ?stat_ts() 
-        ?data_statplotly()
+        ?stat_ts()
    
 ### Usage
 
@@ -51,11 +49,8 @@ Most of the functions includes arguments which, if not specified, will have as v
 ### import_data()
 The function import_data() allows to have the dataset in the global environment as a dataframe.
 
-### add_listfunc()
-The function add_listfunc() takes as arguments a df, a function which will be applied to the columns of the dataframe and a character string as the name of the operation that you performed. It returns a list with the original dataset as first element and a dataframe of the function applied as the second one.
-
-### data_barplotly()
-The function data_barplotly() takes as arguments a df, a character string for the name of the plot and two character strings for the name of both the x and y axis respectively. It gives as output the barplot itself generated using the package plotly.
+### barplotly_func()
+The function barplotly_func() takes as arguments a df, a function to be applied, a character string for the name of the plot and two character strings for the name of both the x and y axis respectively. It gives as output the barplot itself generated using the package plotly.
 
 ### ts_data()
 The function ts_data() creates a time series, using the R-package plotly, of an specified element (second argument) of a dataframe. It returns a class zoo element.
@@ -69,16 +64,14 @@ The function data_tracesl() takes as arguments a df, two specified numbers each 
 ### stat_ts()
 The function stat_ts() takes as arguments a zoo class object (time series) and a character string or a vector of character string which refers to the statistic that will be applied to the object (ex. "correlation", "covariance", "partial"). It returns a basic plot of the statistic selected.
 
-### data_statplotly()
-The function data_statplotly() takes as arguments a variable name assigned to "stat_ts() function", a character string for the name of the plot and two others character strings for the name of both the x and y axis respectively.
-
 
    Dependency with other R-packages
 -----------------------------------------------------------------
 
 -   zoo: package for creating time series objects
 -   na.tools: package useful to work with missing datavisualization (plotting)
--   RColorBrewer: package for customizing the colours of the plot with
-    plotly
+-   RColorBrewer: package for customizing the colours of the plots
 -   lubridate: package for convert date into quarterly
 -   plotly: package used for data visualization (plotting)
+-   magrittr: to improve readability and maintainability of code
+-   dplyr: as grammar data manipulation
