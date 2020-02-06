@@ -2,12 +2,12 @@
 % Please edit documentation in R/functions.R
 \name{data_barplotly}
 \alias{data_barplotly}
-\title{Create a barplot of the dataframe}
+\title{Create a barplot of a function applied to a dataframe}
 \usage{
 data_barplotly(dataset, func, main, xname, yname)
 }
 \arguments{
-\item{dataset}{A dataframe resulting by the function "add_listfunc".}
+\item{dataset}{A dataframe.}
 
 \item{func}{A function to be applied to the columns of the dataset.}
 
@@ -22,7 +22,7 @@ The plot for the selected arguments.
 }
 \description{
 This function allows to crate a coloured barplot using the R-package plotly
-of the second element of the list deriving by the function: add_listfunc().
+of a function applied to to a specific dataframe.
 }
 \examples{
 dataset<-add_listfunction(df,func,character)

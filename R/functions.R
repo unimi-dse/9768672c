@@ -19,38 +19,11 @@ import_data <- function(){
 }
 
 
-#' Apply a function to a dataset creating another element in a list
-#'
-#' @description This function allows to create a list with the original dataset and a dataframe
-#' containing the values originated by the application of the second argument to the dataset.
-#'
-#' @param df A dataframe.
-#' @param func A character string with the function to apply.
-#' @param character A character string for the name of the element added to the list (default = 'Function').
-#'
-#' @return list
-#'
-#' @examples
-#' dataset<-data.frame()
-#' dataset_lsum <- add_listfunc(dataset, sum, 'TOT')
-#' @export
-
-add_listfunc <- function(df,func,character='Function'){
-  mat_df<-as.matrix(df)
-  mat_func <-apply(mat_df,MARGIN=2,FUN=func)
-  tmat_func<-t(mat_func)
-  df_tmat<-as.data.frame(tmat_func)
-  colnames(df_tmat)<-c(colnames(df))
-  df_list<-list('dataset'=df,'dataset_function'=df_tmat)
-  return(df_list)
-}
-
-
-#' Create a barplot of the dataframe
+#' Create a barplot of a function applied to a dataframe
 #'
 #' @description This function allows to crate a coloured barplot using the R-package plotly
-#' of the second element of the list deriving by the function: add_listfunc().
-#' @param dataset A dataframe resulting by the function "add_listfunc".
+#' of a function applied to to a specific dataframe.
+#' @param dataset A dataframe.
 #' @param main A character string for the name of the plot (default = 'Barplot').
 #' @param xname A character string for the name of the x-axe (default = 'Countries').
 #' @param yname A character string for the name of the y-axe (default = 'Number of sales').
@@ -202,33 +175,4 @@ stat_ts<-function(zoo_ts,stat){
   statistics<-acf(zoo_ts, lag.max = NULL,type =stat,
                   plot = TRUE, na.action = na.pass,demean = TRUE)
   return(statistics)
-}
-
-
-#to plot a time series statistic with plotly
-
-#' To plot a time series statistic (moment)
-#'
-#' @description This function allows to do a basic scatterplot with the R-package 'plotly'
-#' of the class 'acf' object deriving by the function: stat_ts().
-#'
-#' @param autoc_dataset A class 'acf' object resulting by the function: "stat_ts()".
-#' @param main A character string for the name of the plot (default= 'Moments of a Time series').
-#' @param yname A character string for the name of the y-axe (default = 'Values').
-#' @param xname A character string for the name of the x-axe (default = 'Lags').
-#'
-#' @return The plot for the selected arguments.
-#' @export
-#'
-#' @examples
-#' obj_zoo<-zoo(x = data.frame(), order.by = as.Date(c()))
-#' object_acf<-stat_ts(obj_zoo,'correlation')
-#' data_statplotly(object_acf,'Basic plot')
-
-
-data_statplotly<-function(autoc_dataset,main='Moments of a Time series',yname='Values',xname='Lags'){
-  acd <- data.frame(lag=autoc_dataset$lag, acf=autoc_dataset$acf)
-  plot_autoc<-plot_ly(x=acd$lag,y=acd$acf,mode='markers',type='scatter') %>%
-    layout(title = main, yaxis = list(title=yname), xaxis = list(title=xname))
-  return(plot_autoc)
 }
