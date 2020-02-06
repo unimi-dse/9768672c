@@ -62,7 +62,6 @@ add_listfunc <- function(df,func,character='Function'){
 #' @examples
 #' dataset<-add_listfunction(df,func,character)
 #' data_barplotly(dataset, 'Barplot of dataset', 'X-axe', 'Y-axe')
-#' @import plotly, magrittr, dplyr
 
 
 data_barplotly <- function(dataset,func,main,xname,yname){
