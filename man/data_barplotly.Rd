@@ -4,15 +4,12 @@
 \alias{data_barplotly}
 \title{Create a barplot of the dataframe}
 \usage{
-data_barplotly(
-  dataset,
-  main = "Barplot",
-  xname = "Countries",
-  yname = "Number of sales"
-)
+data_barplotly(dataset, func, main, xname, yname)
 }
 \arguments{
 \item{dataset}{A dataframe resulting by the function "add_listfunc".}
+
+\item{func}{}
 
 \item{main}{A character string for the name of the plot (default = 'Barplot').}
 
