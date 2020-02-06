@@ -50,12 +50,11 @@ add_listfunc <- function(df,func,character='Function'){
 #'
 #' @description This function allows to crate a coloured barplot using the R-package plotly
 #' of the second element of the list deriving by the function: add_listfunc().
-#'
 #' @param dataset A dataframe resulting by the function "add_listfunc".
-#' @param func A function to be applied to the columns of the dataset.
 #' @param main A character string for the name of the plot (default = 'Barplot').
 #' @param xname A character string for the name of the x-axe (default = 'Countries').
 #' @param yname A character string for the name of the y-axe (default = 'Number of sales').
+#' @param func A function to be applied to the columns of the dataset.
 #'
 #' @return The plot for the selected arguments.
 #' @export
@@ -72,13 +71,12 @@ data_barplotly <- function(dataset,func,main,xname,yname){
   df_tmat<-as.data.frame(tmat_func)
   data_ly<-as.matrix(df_tmat)
   plot_dataset<- plot_ly(x =colnames(data_ly),
-    y = data_ly,
-    name = main,
-    type = "bar", marker = list(color = c('rgb(250,0,0)','rgb(0,250,0)','rgb(39, 129, 241)','rgb(252,215,4)','rgb(39, 211, 242)'),
-      line = list(color = 'rgb(0,0,0)',width = 1.5))) %>% layout(title = main, xaxis = list(title = xname),yaxis = list(title = yname))
+                         y = data_ly,
+                         name = main,
+                         type = "bar", marker = list(color = c('rgb(250,0,0)','rgb(0,250,0)','rgb(39, 129, 241)','rgb(252,215,4)','rgb(39, 211, 242)'),
+                                                     line = list(color = 'rgb(0,0,0)',width = 1.5))) %>% layout(title = main, xaxis = list(title = xname),yaxis = list(title = yname))
   return(plot_dataset)
 }
-
 
 #' Create a time series of a dataframe
 #'

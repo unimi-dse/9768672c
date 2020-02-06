@@ -9,7 +9,7 @@ data_barplotly(dataset, func, main, xname, yname)
 \arguments{
 \item{dataset}{A dataframe resulting by the function "add_listfunc".}
 
-\item{func}{}
+\item{func}{A function to be applied to the columns of the dataset.}
 
 \item{main}{A character string for the name of the plot (default = 'Barplot').}
 
