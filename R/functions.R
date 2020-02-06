@@ -9,7 +9,7 @@
 #' @examples
 #' import_data()
 #' @export
-#' @import readr
+#' @import na.tools
 
 import_data <- function(){
   dataset_df<-read.csv(system.file("extdata", "Tesla top 5.csv", package="teslasales"),sep=",")
@@ -62,7 +62,7 @@ add_listfunc <- function(df,func,character='Function'){
 #' @examples
 #' dataset<-add_listfunction(df,func,character)
 #' data_barplotly(dataset, 'Barplot of dataset', 'X-axe', 'Y-axe')
-#' @import magrittr dplyr plotly
+#' @import magrittr dplyr plotly RColorBrewer
 
 
 data_barplotly <- function(dataset,func,main,xname,yname){
@@ -93,6 +93,7 @@ data_barplotly <- function(dataset,func,main,xname,yname){
 #' @examples
 #' dataset<-data.frame()
 #' ts_data(dataset,1)
+#' @import lubridate
 
 
 ts_data <- function(dataset,n_ts){
@@ -121,6 +122,7 @@ ts_data <- function(dataset,n_ts){
 #' @examples
 #' dataset<-data.frame()
 #' data_tsplotly(dataset, 1, 'Graph', 'Values')
+#' @import zoo
 
 
 data_tsplotly<-function(dataset,n_ts,main='Time series plot',yname='Number of sales',xname='Dates'){
