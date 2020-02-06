@@ -38,7 +38,7 @@ import_data <- function(){
 #' @import magrittr dplyr plotly RColorBrewer
 
 
-data_barplotly <- function(dataset,func,main,xname,yname){
+barplotly_func <- function(dataset,func,main,xname,yname){
   mat_df<-as.matrix(dataset)
   mat_func <-apply(mat_df,MARGIN=2,FUN=func)
   tmat_func<-t(mat_func)
