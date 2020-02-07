@@ -9,5 +9,5 @@ Description: The package contains data-set, statistical analysis
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: zoo, na.tools, RColorBrewer, lubridate, magrittr, dplyr, plotly
+Imports: zoo, na.tools, RColorBrewer, lubridate, magrittr, dplyr, plotly, tseries, forecast, ggplot2, stats
 RoxygenNote: 7.0.2

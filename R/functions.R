@@ -69,7 +69,7 @@ barplotly_func <- function(dataset,func,main,xname,yname){
 #' @import lubridate
 
 
-ts_data <- function(dataset,n_ts){
+ts_datazoo <- function(dataset,n_ts){
   df_data<-as.data.frame(dataset)
   data_qtr<-ymd(rownames(dataset))
   data_qtryr<-quarter(data_qtr,with_year=TRUE)
@@ -175,4 +175,147 @@ stat_ts<-function(zoo_ts,stat){
   statistics<-acf(zoo_ts, lag.max = NULL,type =stat,
                   plot = TRUE, na.action = na.pass,demean = TRUE)
   return(statistics)
+}
+
+
+#' To create a time series of a dataframe
+#'
+#' @description This function allows to create a time series object from a dataframe using
+#' the R-package 'stats'.
+#' @param dataset A dataframe.
+#' @param start_date A numeric vector of two elemets, year and quarter, respectively.
+#' @param end_date A numeric vector of two elemets, year and quarter, respectively.
+#'
+#' @return A class 'ts' object.
+#' @export
+#'
+#' @examples
+#' INSERT EXAMPLE
+#' @import stats
+
+
+ts_datastats <- function(dataset,start_date,end_date){
+  data_ts<-ts(dataset,start=start_date,end=end_date,deltat=3/12)
+  return(data_ts)
+}
+
+
+#' To verify the order of integration of a time series and its statistics
+#'
+#' @description This function allows to verify if the time series is stationary or it is
+#' integrated of order 1 or higher than 1.
+#' @param ts A class 'ts' object.
+#' @param n_ts A number referring to the colum of the time series.
+#'
+#' @return A Charachter string and a class 'htest' object.
+#' @export
+#'
+#' @examples
+#' INSERT EXAMPLE
+#' @import forecast tseries
+
+
+stat_data<-function(ts, n_ts){
+  univar_ts<-ts[,n_ts]
+  stat_test<-adf.test(univar_ts, alternative="stationary")
+  if(stat_test$p.value<0.05){
+    print("THE TIME SERIES IS STATIONARY")
+  }
+  else if(stat_test$p.value>0.05){
+    data_diff<-diff(univar_ts,1)
+    stat_testdiff<-adf.test(data_diff, alternative='stationary')
+    if (stat_testdiff$p.value < 0.05){
+      print("The order of integration is 1")
+      return(stat_testdiff)}
+    else if (stat_testdiff$p.value > 0.05){
+      print("The order of integration is higher than 1")
+      return(stat_testdiff)
+    }
+  }
+}
+
+
+#' To select automatically the best ARIMA model for a specified time series
+#'
+#' @description This function allows to look for the best parameters for the
+#' tailored ARIMA model for a specific time series.
+#' @param ts A class 'ts' object.
+#' @param n_ts A number referring to the colum of the time series.
+#'
+#' @return A class 'forecast_ARIMA' , "ARIMA" and 'Arima' object.
+#' @export
+#'
+#' @examples
+#' INSERT EXAMPLE
+
+
+autoparam_tsarima<-function(ts, n_ts){
+  univar_ts<-ts[,n_ts]
+  autom_param<-auto.arima(univar_ts, trace=TRUE)
+  return(autom_param)
+}
+
+
+#' To select manually the best ARIMA model for a specified time series.
+#'
+#' @param ts A class 'ts' object.
+#' @param n_ts A number referring to the colum of the time series.
+#' @param vct_param A numeric vector with three integer components (p, d, q), which refers to
+#' the AR order, the degree of differencing, and the MA order.
+#' @return A class 'Arima' object.
+#' @export
+#'
+#' @examples
+
+
+manualparam_tsarima<-function(ts,n_ts,vct_param){
+  univar_ts<-ts[,n_ts]
+  manua_param<-arima(univar_ts,order=vct_param)
+  return(manua_param)
+}
+
+
+#' To plot the residuals of a ARIMA model of a Time Series
+#'
+#' @description This function allows to create a plot of the residuals of an ARIMA model
+#' of a time series with both two separate plots of the Autocorrelation (ACF) and Partial Autocorrelation function (PACF)
+#' @param ts_arima A class 'Arima' object.
+#' @param title A character string for the title of the plot.
+#'
+#' @return Three plots (Residuals, ACF and PACF).
+#' @export
+#'
+#' @examples
+#' INSERT EXAMPLE
+#' @import ggplot2
+
+
+plot_tsres<-function(ts_arima,title){
+  plotres<-tsdisplay(residuals(ts_arima), lag.max=10, main=title)
+  return(plotres)
+}
+
+#' To plot the linear forecast of an ARIMA model of a time series
+#'
+#' @description This function allows to create a plot which contains a linear forecast,
+#' based on pre-selected ARIMA model.
+#' @param ts_arima A class 'Arima' object.
+#' @param n_period A number refferred to the period of the forecast expressed in quarters.
+#' @param vctconf_interv A numeric vector with two elements which refer respectively to the lower and upper
+#' limits of the confidence interval of the forecast.
+#' @param title A character string for the title of the plot.
+#' @param xname A character string for the label of the x-axe.
+#' @param yname A character string for the label of the y-axe.
+#'
+#' @return The plot of the forecast.
+#' @export
+#'
+#' @examples
+#' INSERT EXAMPLES
+
+
+tsforc_data<-function(ts_arima, n_period,vctconf_interv,title,xname,yname){
+  ts_fcast<-forecast(ts_arima,h=n_period,level=vctconf_interv)
+  forc_plot<-plot(ts_fcast,PI=TRUE, showgap=TRUE, shaded=TRUE, col="blue",fcol="red",main=title,xlab=xname,ylab=yname)
+  return(forc_plot)
 }
