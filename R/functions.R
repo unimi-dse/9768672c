@@ -9,7 +9,6 @@
 #' @examples
 #' import_data()
 #' @export
-#' @import na.tools
 
 import_data <- function(){
   dataset_df<-read.csv(system.file("extdata", "Tesla top 5.csv", package="teslasales"),sep=",")
@@ -35,7 +34,6 @@ import_data <- function(){
 #' @examples
 #' dataset<-add_listfunction(df,func,character)
 #' data_barplotly(dataset, 'Barplot of dataset', 'X-axe', 'Y-axe')
-#' @import magrittr dplyr plotly RColorBrewer
 
 
 barplotly_func <- function(dataset,func,main,xname,yname){
@@ -66,7 +64,6 @@ barplotly_func <- function(dataset,func,main,xname,yname){
 #' @examples
 #' dataset<-data.frame()
 #' ts_data(dataset,1)
-#' @import lubridate
 
 
 ts_datazoo <- function(dataset,n_ts){
@@ -95,7 +92,6 @@ ts_datazoo <- function(dataset,n_ts){
 #' @examples
 #' dataset<-data.frame()
 #' data_tsplotly(dataset, 1, 'Graph', 'Values')
-#' @import zoo
 
 
 data_tsplotly<-function(dataset,n_ts,main='Time series plot',yname='Number of sales',xname='Dates'){
@@ -191,7 +187,6 @@ stat_ts<-function(zoo_ts,stat){
 #'
 #' @examples
 #' INSERT EXAMPLE
-#' @import stats
 
 
 ts_datastats <- function(dataset,start_date,end_date){
@@ -212,7 +207,6 @@ ts_datastats <- function(dataset,start_date,end_date){
 #'
 #' @examples
 #' INSERT EXAMPLE
-#' @import forecast tseries
 
 
 stat_data<-function(ts, n_ts){
@@ -287,7 +281,6 @@ manualparam_tsarima<-function(ts,n_ts,vct_param){
 #'
 #' @examples
 #' INSERT EXAMPLE
-#' @import ggplot2
 
 
 plot_tsres<-function(ts_arima,title){
