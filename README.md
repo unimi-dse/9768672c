@@ -25,7 +25,7 @@ The dataset is used for statistical purposes (data analysis, visualization, ecc.
 
 The packages contains a dataset from "Tesla Europe Registration Stats" (https://teslamotorsclub.com/tmc/threads/tesla-europe-registration-stats.61651/) accuratley modified in order to highlight the most relevant data.
 
-### Documentation
+### Documentation ADD NEW FUNCTIONS!!!
 
       #To see the documentation of each function inside the package:
       
@@ -42,7 +42,7 @@ The packages contains a dataset from "Tesla Europe Registration Stats" (https://
       > require('teslasales')
          import_data()
    
-   Functions
+   Functions ADD NEW FUNCTIONS!!!
 -----------------------------------------------------------------
 Most of the functions includes arguments which, if not specified, will have as value the default one which is properly indicated inside the documentation, by typing: ?name_of_the_function().
 
@@ -65,7 +65,7 @@ The function data_tracesl() takes as arguments a df, two specified numbers each 
 The function stat_ts() takes as arguments a zoo class object (time series) and a character string or a vector of character string which refers to the statistic that will be applied to the object (ex. "correlation", "covariance", "partial"). It returns a basic plot of the statistic selected.
 
 
-   Dependency with other R-packages
+   Dependency with other R-packages ADD NEW PACKAGES!!!
 -----------------------------------------------------------------
 
 -   zoo: package for creating time series objects
