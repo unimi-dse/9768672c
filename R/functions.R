@@ -36,7 +36,7 @@ import_data <- function(){
 #' data_barplotly(dataset, 'Barplot of dataset', 'X-axe', 'Y-axe')
 
 
-barplotly_func <- function(dataset,func,main,xname,yname){
+barplotly_func <- function(dataset=dataset,func,main,xname,yname){
   mat_df<-as.matrix(dataset)
   mat_func <-apply(mat_df,MARGIN=2,FUN=func)
   tmat_func<-t(mat_func)
