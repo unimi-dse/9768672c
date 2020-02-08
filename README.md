@@ -91,14 +91,14 @@ The function tsforc_data() takes as arguments a univariate ARIMA model, a numeri
    Dependency with other R-packages
 -----------------------------------------------------------------
 
--   zoo: package for creating time series objects
--   na.tools: package useful to work with missing datavisualization (plotting)
--   RColorBrewer: package for customizing the colours of the plots
--   lubridate: package for convert date into quarterly
--   plotly: package used for data visualization (plotting)
--   magrittr: to improve readability and maintainability of code
--   dplyr: as grammar data manipulation
--   tseries:
--   ggplot2:
--   forecast:
--   stats:
+-   zoo: package for creating time series objects.
+-   na.tools: package useful to work with missing datavisualization.
+-   RColorBrewer: package for customizing the colours of the plots.
+-   lubridate: package for convert date into quarterly.
+-   plotly: package used for data visualization (plotting).
+-   magrittr: to improve readability and maintainability of code.
+-   dplyr: as grammar data manipulation.
+-   tseries: to do some further statistics with time series objects.
+-   ggplot2: to customize the layout of the plots.
+-   forecast: to do forecasting with time series and ARIMA models.
+-   stats: to manage time series observations.
