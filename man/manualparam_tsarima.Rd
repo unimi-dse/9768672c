@@ -4,12 +4,10 @@
 \alias{manualparam_tsarima}
 \title{To select manually the best ARIMA model for a specified time series.}
 \usage{
-manualparam_tsarima(ts, n_ts, vct_param)
+manualparam_tsarima(ts, vct_param)
 }
 \arguments{
-\item{ts}{A class 'ts' object.}
-
-\item{n_ts}{A number referring to the colum of the time series.}
+\item{ts}{A univariate time series of class 'ts' object.}
 
 \item{vct_param}{A numeric vector with three integer components (p, d, q), which refers to
 the AR order, the degree of differencing, and the MA order.}
@@ -19,4 +17,9 @@ A class 'Arima' object.
 }
 \description{
 To select manually the best ARIMA model for a specified time series.
+}
+\examples{
+dataset<-data.frame(...)
+dataset_ts<-ts(data.frame,...)
+manualparam_tsarima(dataset_ts[,1])
 }

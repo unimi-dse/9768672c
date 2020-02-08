@@ -6,22 +6,29 @@
 \usage{
 data_tsplotly(
   dataset,
-  n_ts,
+  start_date = "2013-09-30",
+  n_obs = 26,
+  interval = "quarter",
   main = "Time series plot",
   yname = "Number of sales",
   xname = "Dates"
 )
 }
 \arguments{
-\item{dataset}{A dataframe.}
+\item{dataset}{A subsetted dataframe which contains one precise time series of interest
+(to allow for univariate ts).}
 
-\item{n_ts}{A number referring to the colum of the dataset to plot as a time series.}
+\item{start_date}{A character string which refers to the date of the first observation, with format "%Y-%m-%d" (default = "2013-09-30").}
 
-\item{main}{A character string for the title of the plot (default = 'Time series plot')}
+\item{n_obs}{A number equal to the observations inside the time series (default = 26).}
 
-\item{yname}{A character string for the name of the x-axe (default = 'Number of sales')}
+\item{interval}{A character string which refers to the time interval between each observation (default = "quarter").}
 
-\item{xname}{A character string for the name of the y-axe (default = 'Dates')}
+\item{main}{A character string for the title of the plot (default = 'Time series plot').}
+
+\item{yname}{A character string for the name of the x-axe (default = 'Number of sales').}
+
+\item{xname}{A character string for the name of the y-axe (default = 'Dates').}
 }
 \value{
 The plot for the selected arguments.
@@ -31,6 +38,6 @@ This function creates a lines+scatter plot of a time series using
 the R-package 'plotly'.
 }
 \examples{
-dataset<-data.frame()
-data_tsplotly(dataset, 1, 'Graph', 'Values')
+dataset<-data.frame(..., 'something'=c(...))
+data_tsplotly(dataset$something, main='Graph', yname='Values')
 }

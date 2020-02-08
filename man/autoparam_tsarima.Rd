@@ -4,12 +4,10 @@
 \alias{autoparam_tsarima}
 \title{To select automatically the best ARIMA model for a specified time series}
 \usage{
-autoparam_tsarima(ts, n_ts)
+autoparam_tsarima(ts)
 }
 \arguments{
-\item{ts}{A class 'ts' object.}
-
-\item{n_ts}{A number referring to the colum of the time series.}
+\item{ts}{A univariate time series of class 'ts' object.}
 }
 \value{
 A class 'forecast_ARIMA' , "ARIMA" and 'Arima' object.
@@ -19,5 +17,7 @@ This function allows to look for the best parameters for the
 tailored ARIMA model for a specific time series.
 }
 \examples{
-INSERT EXAMPLE
+dataset<-data.frame(...)
+dataset_ts<-ts(data.frame,...)
+autoparam_tsarima(dataset_ts[,1])
 }

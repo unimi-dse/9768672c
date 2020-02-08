@@ -5,9 +5,11 @@
 \title{Plot two time series from a dataset in the same linegraph}
 \usage{
 data_tracesl(
-  dataset,
-  n_ts1,
-  n_ts2,
+  dataset1,
+  dataset2,
+  start_date = "2013-09-30",
+  n_obs = 26,
+  interval = "quarter",
   main,
   second,
   title = "Comparison Time series plot",
@@ -16,11 +18,17 @@ data_tracesl(
 )
 }
 \arguments{
-\item{dataset}{A dataframe.}
+\item{dataset1}{A subsetted dataframe which contains one precise time series of interest
+(to allow for univariate ts).}
 
-\item{n_ts1}{A number referring to the colum of the dataset to plot as a time series.}
+\item{dataset2}{A subsetted dataframe which contains one precise time series of interest
+(to allow for univariate ts).}
 
-\item{n_ts2}{A number referring to the colum of the dataset to plot as a time series.}
+\item{start_date}{A character string which refers to the date of the first observation, with format "%Y-%m-%d" (default = "2013-09-30").}
+
+\item{n_obs}{A number equal to the observations inside the time series (default = 26).}
+
+\item{interval}{A character string which refers to the time interval between each observation (default = "quarter").}
 
 \item{main}{A character string for the name of the first time series.}
 
@@ -40,6 +48,6 @@ This function allows comparisons in trends between two timeseries selected
 from a dataset and includes a slider to better select the periods of the analysis.
 }
 \examples{
-dataset<-data.frame()
-data_tracesl(dataset,1,2,'High school', 'University', 'Grades in school','Grades')
+dataset<-data.frame(..., 'something'=c(...), 'somethingelse'=c(...))
+data_tracesl(dataset$something,dataset$somethingelse,main='High school', main='University', second='High school',title='Grades', yname='Numbers')
 }

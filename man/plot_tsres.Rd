@@ -4,10 +4,10 @@
 \alias{plot_tsres}
 \title{To plot the residuals of a ARIMA model of a Time Series}
 \usage{
-plot_tsres(ts_arima, title)
+plot_tsres(ts_arima, title = "PLOT ARIMA MODEL")
 }
 \arguments{
-\item{ts_arima}{A class 'Arima' object.}
+\item{ts_arima}{A univariate time series with class 'Arima' object.}
 
 \item{title}{A character string for the title of the plot.}
 }
@@ -19,5 +19,8 @@ This function allows to create a plot of the residuals of an ARIMA model
 of a time series with both two separate plots of the Autocorrelation (ACF) and Partial Autocorrelation function (PACF)
 }
 \examples{
-INSERT EXAMPLE
+dataset<-data.frame(...)
+dataset_ts<-ts(data.frame,...)
+arima_ts<-autoparam_tsarima(dataset_ts[,1])
+plot_tsres(arima_ts, "ARIMA")
 }

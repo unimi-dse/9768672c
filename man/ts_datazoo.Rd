@@ -4,12 +4,10 @@
 \alias{ts_datazoo}
 \title{Create a time series of a dataframe}
 \usage{
-ts_datazoo(dataset, n_ts)
+ts_datazoo(dataset = NULL)
 }
 \arguments{
-\item{dataset}{A dataframe.}
-
-\item{n_ts}{Number of the column of the dataframe which will generate a time series.}
+\item{dataset}{A dataframe (default= 'NULL' which will recall the original dataset).}
 }
 \value{
 A class 'zoo' object.
@@ -20,5 +18,5 @@ with the rownames used as Dates (quarterly).
 }
 \examples{
 dataset<-data.frame()
-ts_data(dataset,1)
+ts_data(dataset)
 }

@@ -1,12 +1,8 @@
-#' Real Google Analytics Data Sample SUBSTITUTE EVERYTHING!!!!
+#' Sales of Testla Motorcars in the top-5 European Countries during a period from the third quarter
+#' of 2013 to the fourth quarter of 2019.
 #'
-#' A dataset that contains real GA data for testing porpuses.
-#' The variables are as follows:
+#' A dataset that contains real value-data for statistical porpuses with the table data can be found at this url.link:
+#' https://teslamotorsc2013-0-01lub.com/tmc/threads/tesla-europe-registration-stats.61651/.
 #'
-#' @format A data frame with 50 rows and 3 variables:
-#' \describe{
-#'   \item{date}{date of recorded data (2017-07-01)}
-#'   \item{sourceMedium}{source and medium  (google / organic)}
-#'   \item{sessions}{sessions (10, 50, 80, 100, 120)}
-#' }
+#' @format A data frame with 26 rows and 5 variables
 "dataset"

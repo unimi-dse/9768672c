@@ -4,10 +4,16 @@
 \alias{barplotly_func}
 \title{Create a barplot of a function applied to a dataframe}
 \usage{
-barplotly_func(dataset, func, main, xname, yname)
+barplotly_func(
+  dataset = NULL,
+  func,
+  main = "Barplot",
+  xname = "Countries",
+  yname = "Number of sales"
+)
 }
 \arguments{
-\item{dataset}{A dataframe.}
+\item{dataset}{A dataframe (default= 'NULL' which will recall the original dataset).}
 
 \item{func}{A function to be applied to the columns of the dataset.}
 
@@ -25,6 +31,5 @@ This function allows to crate a coloured barplot using the R-package plotly
 of a function applied to to a specific dataframe.
 }
 \examples{
-dataset<-add_listfunction(df,func,character)
-data_barplotly(dataset, 'Barplot of dataset', 'X-axe', 'Y-axe')
+data_barplotly(func=sum, title='Barplot of dataset', xname='X-axe', yname='Y-axe')
 }

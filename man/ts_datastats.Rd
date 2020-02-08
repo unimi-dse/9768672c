@@ -4,7 +4,7 @@
 \alias{ts_datastats}
 \title{To create a time series of a dataframe}
 \usage{
-ts_datastats(dataset, start_date, end_date)
+ts_datastats(dataset = NULL, start_date = c(2013, 3), end_date = c(2019, 4))
 }
 \arguments{
 \item{dataset}{A dataframe.}
@@ -21,5 +21,6 @@ This function allows to create a time series object from a dataframe using
 the R-package 'stats'.
 }
 \examples{
-INSERT EXAMPLE
+dataset<-data.frame(...)
+data_ts(dataset,start_date=c(2010,2),end_data=c(2020,4))
 }

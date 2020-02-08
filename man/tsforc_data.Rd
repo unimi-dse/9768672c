@@ -4,21 +4,28 @@
 \alias{tsforc_data}
 \title{To plot the linear forecast of an ARIMA model of a time series}
 \usage{
-tsforc_data(ts_arima, n_period, vctconf_interv, title, xname, yname)
+tsforc_data(
+  ts_arima,
+  n_period = 4,
+  vctconf_interv = c(80, 95),
+  title = "FORECAST PLOT",
+  xname = "Dates",
+  yname = "Values"
+)
 }
 \arguments{
-\item{ts_arima}{A class 'Arima' object.}
+\item{ts_arima}{A univariate time series with class 'Arima' object.}
 
-\item{n_period}{A number refferred to the period of the forecast expressed in quarters.}
+\item{n_period}{A number refferred to the period of the forecast expressed in quarters (default= 4)}
 
-\item{vctconf_interv}{A numeric vector with two elements which refer respectively to the lower and upper
-limits of the confidence interval of the forecast.}
+\item{vctconf_interv}{A numeric vector with two elements which refer to the lower and upper
+limits of the confidence interval of the forecast, respectively (default= c(80,95)).}
 
-\item{title}{A character string for the title of the plot.}
+\item{title}{A character string for the title of the plot (default="FORECAST PLOT").}
 
-\item{xname}{A character string for the label of the x-axe.}
+\item{xname}{A character string for the label of the x-axe (default="Dates").}
 
-\item{yname}{A character string for the label of the y-axe.}
+\item{yname}{A character string for the label of the y-axe (default="Values").}
 }
 \value{
 The plot of the forecast.
@@ -28,5 +35,8 @@ This function allows to create a plot which contains a linear forecast,
 based on pre-selected ARIMA model.
 }
 \examples{
-INSERT EXAMPLES
+dataset<-data.frame(...)
+dataset_ts<-ts(data.frame,...)
+arimamodel_ts<-autoparam_tsarima(dataset_ts[,1])
+tsforc_data(arimamodel_ts, 8)
 }
