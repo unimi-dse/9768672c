@@ -71,7 +71,7 @@ barplotly_func <- function(dataset=NULL,func,main='Barplot', xname='Countries',y
 
 
 ts_datazoo <- function(dataset=NULL){
-  if (is.null(dataset)){
+  if (is.null(dataset)==TRUE){
     dataset=teslasales::dataset
   }
   else {
@@ -182,7 +182,7 @@ data_tracesl<-function(dataset1,dataset2,start_date="2013-09-30",n_obs=26,interv
 
 
 ts_datastats <- function(dataset=NULL,start_date=c(2013,3),end_date=c(2019,4)){
-  if (is.null(dataset)){
+  if (is.null(dataset)==TRUE){
     dataset=teslasales::dataset
   }
   else {
