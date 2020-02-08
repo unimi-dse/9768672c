@@ -17,7 +17,6 @@ import_data <- function(){
   return(dataset_df)
 }
 
-
 #' Create a barplot of a function applied to a dataframe
 #'
 #' @description This function allows to crate a coloured barplot using the R-package plotly
@@ -33,26 +32,26 @@ import_data <- function(){
 #'
 #' @examples
 #' data_barplotly(func=sum, title='Barplot of dataset', xname='X-axe', yname='Y-axe')
-#' @import magrittr dplyr
+#' @import magrittr dplyr ggplot2 plotly
 
 
-barplotly_func <- function(dataset=NULL,func,main='Barplot',xname='Countries',yname='Number of sales'){
-  if (is.null(dataset)){
+barplotly_func <- function(dataset=NULL,func,main='Barplot', xname='Countries',yname='Number of sales'){
+  if (is.null(dataset)==TRUE){
     dataset=teslasales::dataset
   }
   else {
     dataset<-dataset}
-
+  listx<-list(title=xname)
+  listy<-list(title=yname)
   mat_df<-as.matrix(dataset)
   mat_func <-apply(mat_df,MARGIN=2,FUN=func)
   tmat_func<-t(mat_func)
   df_tmat<-as.data.frame(tmat_func)
   data_ly<-as.matrix(df_tmat)
-  plot_dataset<- plotly::plot_ly(x =colnames(data_ly),
-                         y = data_ly,
-                         name = main,
+  plot_dataset<- plotly::plot_ly(x =colnames(data_ly),y = data_ly,name = main,
                          type = "bar", marker = list(color = c('rgb(250,0,0)','rgb(0,250,0)','rgb(39, 129, 241)','rgb(252,215,4)','rgb(39, 211, 242)'),
-                                                     line = list(color = 'rgb(0,0,0)',width = 1.5))) %>% layout(title = main, xaxis = list(title = xname),yaxis = list(title = yname))
+                                                     line = list(color = 'rgb(0,0,0)',width = 1.5))) %>%
+    layout(title = main, yaxis = listx[1], xaxis = listy[1])
   return(plot_dataset)
 }
 
