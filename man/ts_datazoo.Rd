@@ -13,8 +13,8 @@ ts_datazoo(dataset = NULL)
 A class 'zoo' object.
 }
 \description{
-This function creates a time series of the dataset with teh R-package 'zoo'
-with the rownames used as Dates (quarterly).
+This function creates a time series of the dataset with the R-package 'zoo'
+with the rownames used as dates (quarterly).
 }
 \examples{
 dataset<-data.frame()

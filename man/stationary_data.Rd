@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions.R
 \name{stationary_data}
 \alias{stationary_data}
-\title{To verify the order of integration of a time series and its statistics}
+\title{To verify the order of integration of a time series}
 \usage{
 stationary_data(ts)
 }
@@ -10,7 +10,7 @@ stationary_data(ts)
 \item{ts}{A univariate time series of class 'ts' object.}
 }
 \value{
-A Charachter string and a class 'htest' object.
+Print a character string.
 }
 \description{
 This function allows to verify if the time series is stationary or it is

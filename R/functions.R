@@ -20,7 +20,7 @@ import_data <- function(){
 #' Create a barplot of a function applied to a dataframe
 #'
 #' @description This function allows to crate a coloured barplot using the R-package plotly
-#' of a function applied to a dataframe.
+#' of a function applied to to a specific dataframe.
 #' @param dataset A dataframe (default= 'NULL' which will recall the original dataset).
 #' @param main A character string for the name of the plot (default = 'Barplot').
 #' @param xname A character string for the name of the x-axe (default = 'Countries').
@@ -58,7 +58,7 @@ barplotly_func <- function(dataset=NULL,func,main='Barplot', xname='Countries',y
 #' Create a time series of a dataframe
 #'
 #' @description This function creates a time series of the dataset with the R-package 'zoo'
-#' with the rownames used as Dates (quarterly).
+#' with the rownames used as dates (quarterly).
 #'
 #' @param dataset A dataframe (default= 'NULL' which will recall the original dataset).
 #'
@@ -192,14 +192,14 @@ ts_datastats <- function(dataset=NULL,start_date=c(2013,3),end_date=c(2019,4)){
 }
 
 
-#' To verify the order of integration of a time series and its statistics
+#' To verify the order of integration of a time series
 #'
 #' @description This function allows to verify if the time series is stationary or it is
 #' integrated of order 1 or higher than 1.
 #'
 #' @param ts A univariate time series of class 'ts' object.
 #'
-#' @return A Charachter string and a class 'htest' object.
+#' @return Print a character string.
 #' @export
 #'
 #' @examples
