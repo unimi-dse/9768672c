@@ -20,7 +20,7 @@ import_data <- function(){
 #' Create a barplot of a function applied to a dataframe
 #'
 #' @description This function allows to crate a coloured barplot using the R-package plotly
-#' of a function applied to to a specific dataframe.
+#' of a function applied to a dataframe.
 #' @param dataset A dataframe (default= 'NULL' which will recall the original dataset).
 #' @param main A character string for the name of the plot (default = 'Barplot').
 #' @param xname A character string for the name of the x-axe (default = 'Countries').
