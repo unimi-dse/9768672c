@@ -57,7 +57,7 @@ barplotly_func <- function(dataset=NULL,func,main='Barplot', xname='Countries',y
 
 #' Create a time series of a dataframe
 #'
-#' @description This function creates a time series of the dataset with teh R-package 'zoo'
+#' @description This function creates a time series of the dataset with the R-package 'zoo'
 #' with the rownames used as Dates (quarterly).
 #'
 #' @param dataset A dataframe (default= 'NULL' which will recall the original dataset).
