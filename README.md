@@ -29,7 +29,7 @@ The packages contains a dataset from "Tesla Europe Registration Stats" (https://
     
     > ?teslasales::dataset
 
-### Documentation ADD NEW FUNCTIONS!!!
+### Documentation
 
       #To see the documentation of each function inside the package:
       
@@ -51,7 +51,7 @@ The packages contains a dataset from "Tesla Europe Registration Stats" (https://
       > require('teslasales')
          import_data()
    
-   Functions ADD NEW FUNCTIONS!!!
+   Functions
 -----------------------------------------------------------------
 Most of the functions includes arguments which, if not specified, will have as value the default one which is properly indicated inside the documentation, by typing: ?name_of_the_function().
 
@@ -88,7 +88,7 @@ The function plot_tsres() takes as arguments a univariate ARIMA model and a char
 ### tsforc_data()
 The function tsforc_data() takes as arguments a univariate ARIMA model, a numeric value for the periods of the forecast, a vector with two elements for the lower/upper limits of the confidence interval, a character string for the title of the plot and two other character strings for the name of both the x and y axis respectively. It returns the plot of the forecast (line red) for the selected arguments.
 
-   Dependency with other R-packages ADD NEW PACKAGES!!!
+   Dependency with other R-packages
 -----------------------------------------------------------------
 
 -   zoo: package for creating time series objects
