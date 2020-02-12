@@ -32,7 +32,7 @@ import_data <- function(){
 #'
 #' @examples
 #' data_barplotly(func=sum, title='Barplot of dataset', xname='X-axe', yname='Y-axe')
-#' @import magrittr dplyr ggplot2
+#' @import magrittr dplyr ggplot2 plotly
 
 
 barplotly_func <- function(dataset=NULL,func,main='Barplot', xname='Countries',yname='Number of sales'){
