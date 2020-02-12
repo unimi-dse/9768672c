@@ -74,16 +74,16 @@ The function data_tracesl() takes as arguments two subsetted dataframes, a chara
 The function ts_datastats() takes as arguments a dataframe and two character vectors, each with two elements referring to the year and a quarter of the initial date and final date respectively. It returns a class 'ts' object.
 
 ### stationary_data()
-The function stationary_data() takes as argument a univariate time series and prints a character string with the order of integration of the selected time series.
+The function stationary_data() takes as argument a univariate time series and returns a logical object TRUE if the ts is stationary or FALSE if it is not.
 
 ### autoparam_tsarima()
-The function autoparam_tsarima() takes as arguments a univariate time series object and returns the best ARIMA model which fits the data (object class 'Arima'), with all the corresponding statistics.
+The function autoparam_tsarima() takes as arguments a univariate time series object and returns a list containing as a first element the best ARIMA model which fits the data (object class 'Arima') and as second element the stationary ts (object 'ts') computed differentiating it basing on its order of integration.
 
 ### manualparam_tsarima()
-The function manualparam_tsarima() takes as arguments a univariate time series object and a numeric vector with three elements, which refers to the parameters of the ARIMA models, and returns the corresponding ARIMA model and its statistics.
+The function manualparam_tsarima() takes as arguments a univariate time series object and a numeric vector with three elements, which refers to the parameters of the ARIMA models, and returns a list containing as a first element the corrisponding ARIMA model which fits the data (object class 'Arima') and as second element the stationary ts (object 'ts') computed differentiating it basing on its order of integration.
 
 ### plot_tsres()
-The function plot_tsres() takes as arguments a univariate ARIMA model and a character vector for the title of the plot. It returns the plot of the residuals of the corresponding ARIMA model and its ACF and PACF.
+The function plot_tsres() takes as arguments a univariate ARIMA model and a numeric value referred to the degrees of freedom of the distribution of the residuals. It returns three separate plots of the residuals of the corresponding ARIMA model, the ACF and the count, if the argument is an ARIMA object, while a character string with an error if the argument is not an ARIMA one.
 
 ### tsforc_data()
 The function tsforc_data() takes as arguments a univariate ARIMA model, a numeric value for the periods of the forecast, a vector with two elements for the lower/upper limits of the confidence interval, a character string for the title of the plot and two other character strings for the name of both the x and y axis respectively. It returns the plot of the forecast (line red) for the selected arguments.
