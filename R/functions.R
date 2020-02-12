@@ -51,7 +51,7 @@ barplotly_func <- function(dataset=NULL,func,main='Barplot', xname='Countries',y
   plot_dataset<- plotly::plot_ly(x =colnames(data_ly),y = data_ly,name = main,
                          type = "bar", marker = list(color = c('rgb(250,0,0)','rgb(0,250,0)','rgb(39, 129, 241)','rgb(252,215,4)','rgb(39, 211, 242)'),
                                                      line = list(color = 'rgb(0,0,0)',width = 1.5))) %>%
-    layout(title = main, yaxis = listx[1], xaxis = listy[1])
+    layout(title = main, yaxis = listy[1], xaxis = listx[1])
   return(plot_dataset)
 }
 
