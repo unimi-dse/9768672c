@@ -21,6 +21,6 @@ This function allows to create a time series object from a dataframe using
 the R-package 'stats'.
 }
 \examples{
-dataset<-data.frame(...)
+dataset<-data.frame('something'=c(...))
 data_ts(dataset,start_date=c(2010,2),end_data=c(2020,4))
 }

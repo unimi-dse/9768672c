@@ -48,6 +48,6 @@ This function allows comparisons in trends between two timeseries selected
 from a dataset and includes a slider to better select the periods of the analysis.
 }
 \examples{
-dataset<-data.frame(..., 'something'=c(...), 'somethingelse'=c(...))
+dataset<-data.frame('something'=c(...), 'somethingelse'=c(...))
 data_tracesl(dataset$something,dataset$somethingelse,main='High school', main='University', second='High school',title='Grades', yname='Numbers')
 }

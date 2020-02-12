@@ -35,8 +35,8 @@ This function allows to create a plot which contains a linear forecast,
 based on pre-selected ARIMA model.
 }
 \examples{
-dataset<-data.frame(...)
-dataset_ts<-ts(data.frame,...)
+dataset<-data.frame('something'=c(...))
+dataset_ts<-ts(dataset, ...)
 arimamodel_ts<-autoparam_tsarima(dataset_ts[,1])
 tsforc_data(arimamodel_ts, 8)
 }

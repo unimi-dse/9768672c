@@ -17,7 +17,7 @@ This function allows to verify if the time series is stationary
 or not (consider first differences).
 }
 \examples{
-dataset<-data.frame(...)
-dataset_ts<-ts(data.frame,...)
-stationary_data(dataset[,1])
+dataset<-data.frame('something'=c(...))
+dataset_ts<-ts(dataset, ...)
+stationary_data(dataset_ts[,1])
 }

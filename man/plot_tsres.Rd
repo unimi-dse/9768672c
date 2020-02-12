@@ -2,25 +2,25 @@
 % Please edit documentation in R/functions.R
 \name{plot_tsres}
 \alias{plot_tsres}
-\title{To plot the residuals of a ARIMA model of a Time Series}
+\title{To compute and plot the residualsa and the ACF of an ARIMA model of a Time Series}
 \usage{
-plot_tsres(ts_arima, title = "PLOT ARIMA MODEL")
+plot_tsres(ts_arima, n_degfree)
 }
 \arguments{
 \item{ts_arima}{A univariate time series with class 'Arima' object.}
 
-\item{title}{A character string for the title of the plot.}
+\item{n_degfree}{A number referred to the degrees of freedom for the residuals.}
 }
 \value{
-Three plots (Residuals, ACF and PACF).
+Three plots (Residuals, ACF and count) or a character string referred to an argument error.
 }
 \description{
-This function allows to create a plot of the residuals of an ARIMA model
-of a time series with both two separate plots of the Autocorrelation (ACF) and Partial Autocorrelation function (PACF)
+This function allows to create three separate plots of the residuals,
+Partial autocorrelation (PAC) anc the count of an ARIMA model of a time series.
 }
 \examples{
-dataset<-data.frame(...)
-dataset_ts<-ts(data.frame,...)
+dataset<-data.frame('something'=c(...))
+dataset_ts<-ts(dataset, ...)
 arima_ts<-autoparam_tsarima(dataset_ts[,1])
 plot_tsres(arima_ts, "ARIMA")
 }

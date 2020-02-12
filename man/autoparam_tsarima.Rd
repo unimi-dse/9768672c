@@ -2,7 +2,8 @@
 % Please edit documentation in R/functions.R
 \name{autoparam_tsarima}
 \alias{autoparam_tsarima}
-\title{To select automatically the best ARIMA model for a specified time series}
+\title{To select automatically the best ARIMA model for a specified time series and
+computing the corrispondent stationary time series}
 \usage{
 autoparam_tsarima(ts)
 }
@@ -10,14 +11,15 @@ autoparam_tsarima(ts)
 \item{ts}{A univariate time series of class 'ts' object.}
 }
 \value{
-A class 'forecast_ARIMA' , "ARIMA" and 'Arima' object.
+A list object composed by an object of class 'forecast_ARIMA' , "ARIMA" and 'Arima' (first element)
+and an object of class "ts" (second element).
 }
 \description{
 This function allows to look for the best parameters for the
-tailored ARIMA model for a specific time series.
+tailored ARIMA model for a specific time series and computing the resulting stationary ts.
 }
 \examples{
-dataset<-data.frame(...)
-dataset_ts<-ts(data.frame,...)
+dataset<-data.frame('something'=c(...))
+dataset_ts<-ts(dataset, ...)
 autoparam_tsarima(dataset_ts[,1])
 }

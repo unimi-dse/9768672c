@@ -37,7 +37,7 @@ import_data <- function(){
 
 barplotly_func <- function(dataset=NULL,func,main='Barplot', xname='Countries',yname='Number of sales'){
   if (is.null(dataset)==TRUE){
-    dataset=teslasales::dataset
+    dataset<-teslasales::dataset
   }
   else {
     dataset<-dataset}
@@ -102,7 +102,7 @@ ts_datazoo <- function(dataset=NULL){
 #' @export
 #'
 #' @examples
-#' dataset<-data.frame(..., 'something'=c(...))
+#' dataset<-data.frame('something'=c(...))
 #' data_tsplotly(dataset$something, main='Graph', yname='Values')
 #' @import magrittr dplyr
 
@@ -139,7 +139,7 @@ data_tsplotly<-function(dataset,start_date="2013-09-30",n_obs=26,interval="quart
 #' @export
 #'
 #' @examples
-#' dataset<-data.frame(..., 'something'=c(...), 'somethingelse'=c(...))
+#' dataset<-data.frame('something'=c(...), 'somethingelse'=c(...))
 #' data_tracesl(dataset$something,dataset$somethingelse,main='High school', main='University', second='High school',title='Grades', yname='Numbers')
 #' @import magrittr dplyr
 
@@ -177,7 +177,7 @@ data_tracesl<-function(dataset1,dataset2,start_date="2013-09-30",n_obs=26,interv
 #' @export
 #'
 #' @examples
-#' dataset<-data.frame(...)
+#' dataset<-data.frame('something'=c(...))
 #' data_ts(dataset,start_date=c(2010,2),end_data=c(2020,4))
 
 
@@ -203,9 +203,9 @@ ts_datastats <- function(dataset=NULL,start_date=c(2013,3),end_date=c(2019,4)){
 #' @export
 #'
 #' @examples
-#' dataset<-data.frame(...)
-#' dataset_ts<-ts(data.frame,...)
-#' stationary_data(dataset[,1])
+#' dataset<-data.frame('something'=c(...))
+#' dataset_ts<-ts(dataset, ...)
+#' stationary_data(dataset_ts[,1])
 
 
 stationary_data<-function(ts){
@@ -216,68 +216,110 @@ stationary_data<-function(ts){
     return(FALSE)
 }
 
-#' To select automatically the best ARIMA model for a specified time series
+#' To select automatically the best ARIMA model for a specified time series and
+#' computing the corrispondent stationary time series
 #'
 #' @description This function allows to look for the best parameters for the
-#' tailored ARIMA model for a specific time series.
+#' tailored ARIMA model for a specific time series and computing the resulting stationary ts.
 #'
 #' @param ts A univariate time series of class 'ts' object.
 #'
-#' @return A class 'forecast_ARIMA' , "ARIMA" and 'Arima' object.
+#' @return A list object composed by an object of class 'forecast_ARIMA' , "ARIMA" and 'Arima' (first element)
+#' and an object of class "ts" (second element).
 #' @export
 #'
 #' @examples
-#' dataset<-data.frame(...)
-#' dataset_ts<-ts(data.frame,...)
+#' dataset<-data.frame('something'=c(...))
+#' dataset_ts<-ts(dataset, ...)
 #' autoparam_tsarima(dataset_ts[,1])
 
 
 autoparam_tsarima<-function(ts){
+  c=0
+  stat_test<-tseries::adf.test(ts, alternative="stationary")
+  if(stat_test$p.value<0.05){
+    diff_ts<-ts
+  }
+  else if(stat_test$p.value>0.05){
+    while (stat_test$p.value>0.05){
+      c=c+1
+      data_diff<-diff(ts,1)
+      stat_test<-tseries::adf.test(data_diff, alternative='stationary')
+    }
+    diff_ts <-diff(ts, c)
+  }
   autom_param<-forecast::auto.arima(ts, trace=TRUE)
-  return(autom_param)
+  list_int<-list('ARIMA'= autom_param, 'Differentiated Ts'= diff_ts )
+  return(list_int)
 }
 
 
-#' To select manually the best ARIMA model for a specified time series.
+#' To select manually the best ARIMA model for a specified time series and computing the
+#' correspoding stationary time series
+#'
+#' @description This function allows to manually look for the best parameters for the
+#' tailored ARIMA model for a specific time series and computing the resulting stationary ts.
 #'
 #' @param ts A univariate time series of class 'ts' object.
 #' @param vct_param A numeric vector with three integer components (p, d, q), which refers to
 #' the AR order, the degree of differencing, and the MA order.
-#' @return A class 'Arima' object.
+#' @return A list object composed by an object of class 'forecast_ARIMA' , "ARIMA" and 'Arima' (first element)
+#' and an object of class "ts" (second element).
 #' @export
 #'
 #' @examples
-#' dataset<-data.frame(...)
-#' dataset_ts<-ts(data.frame,...)
+#' dataset<-data.frame('something'=c(...))
+#' dataset_ts<-ts(dataset, ...)
 #' manualparam_tsarima(dataset_ts[,1])
 
 
 manualparam_tsarima<-function(ts,vct_param){
+  c=0
+  stat_test<-tseries::adf.test(ts, alternative="stationary")
+  if(stat_test$p.value<0.05){
+    diff_ts<-ts
+  }
+  else if(stat_test$p.value>0.05){
+    while (stat_test$p.value>0.05){
+      c=c+1
+      data_diff<-diff(ts,1)
+      stat_test<-tseries::adf.test(data_diff, alternative='stationary')
+    }
+    diff_ts <-diff(ts, c)
+  }
   manua_param<-forecast::Arima(ts,order=vct_param)
-  return(manua_param)
+  list_int<-list('ARIMA'= manua_param, 'Differentiated Ts'= diff_ts)
+  return(list_int)
 }
 
 
-#' To plot the residuals of a ARIMA model of a Time Series
+#' To compute and plot the residualsa and the ACF of an ARIMA model of a Time Series
 #'
-#' @description This function allows to create a plot of the residuals of an ARIMA model
-#' of a time series with both two separate plots of the Autocorrelation (ACF) and Partial Autocorrelation function (PACF)
+#' @description This function allows to create three separate plots of the residuals,
+#' Partial autocorrelation (PAC) anc the count of an ARIMA model of a time series.
+#'
+#' @param n_degfree A number referred to the degrees of freedom for the residuals.
 #' @param ts_arima A univariate time series with class 'Arima' object.
-#' @param title A character string for the title of the plot.
 #'
-#' @return Three plots (Residuals, ACF and PACF).
+#' @return Three plots (Residuals, ACF and count) or a character string referred to an argument error.
 #' @export
 #'
 #' @examples
-#' dataset<-data.frame(...)
-#' dataset_ts<-ts(data.frame,...)
+#' dataset<-data.frame('something'=c(...))
+#' dataset_ts<-ts(dataset, ...)
 #' arima_ts<-autoparam_tsarima(dataset_ts[,1])
 #' plot_tsres(arima_ts, "ARIMA")
 
 
-plot_tsres<-function(ts_arima,title='PLOT ARIMA MODEL'){
-  plotres<-forecast::tsdisplay(residuals(ts_arima), lag.max=10, main=title)
-  return(plotres)
+plot_tsres<-function(ts_arima, n_degfree){
+  if (forecast::is.Arima(ts_arima)==TRUE){
+    ts_res<-stats::residuals(ts_arima)
+    plotres<-forecast::checkresiduals(ts_res, df = n_degfree)
+    return(plotres)
+  }
+  else{
+    return('The argument is not an ARIMA model')
+  }
 }
 
 #' To plot the linear forecast of an ARIMA model of a time series
@@ -296,8 +338,8 @@ plot_tsres<-function(ts_arima,title='PLOT ARIMA MODEL'){
 #' @export
 #'
 #' @examples
-#' dataset<-data.frame(...)
-#' dataset_ts<-ts(data.frame,...)
+#' dataset<-data.frame('something'=c(...))
+#' dataset_ts<-ts(dataset, ...)
 #' arimamodel_ts<-autoparam_tsarima(dataset_ts[,1])
 #' tsforc_data(arimamodel_ts, 8)
 

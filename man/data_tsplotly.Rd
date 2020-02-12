@@ -38,6 +38,6 @@ This function creates a lines+scatter plot of a time series using
 the R-package 'plotly'.
 }
 \examples{
-dataset<-data.frame(..., 'something'=c(...))
+dataset<-data.frame('something'=c(...))
 data_tsplotly(dataset$something, main='Graph', yname='Values')
 }

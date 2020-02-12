@@ -2,7 +2,8 @@
 % Please edit documentation in R/functions.R
 \name{manualparam_tsarima}
 \alias{manualparam_tsarima}
-\title{To select manually the best ARIMA model for a specified time series.}
+\title{To select manually the best ARIMA model for a specified time series and computing the
+correspoding stationary time series}
 \usage{
 manualparam_tsarima(ts, vct_param)
 }
@@ -13,13 +14,15 @@ manualparam_tsarima(ts, vct_param)
 the AR order, the degree of differencing, and the MA order.}
 }
 \value{
-A class 'Arima' object.
+A list object composed by an object of class 'forecast_ARIMA' , "ARIMA" and 'Arima' (first element)
+and an object of class "ts" (second element).
 }
 \description{
-To select manually the best ARIMA model for a specified time series.
+This function allows to manually look for the best parameters for the
+tailored ARIMA model for a specific time series and computing the resulting stationary ts.
 }
 \examples{
-dataset<-data.frame(...)
-dataset_ts<-ts(data.frame,...)
+dataset<-data.frame('something'=c(...))
+dataset_ts<-ts(dataset, ...)
 manualparam_tsarima(dataset_ts[,1])
 }
