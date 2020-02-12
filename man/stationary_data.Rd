@@ -10,11 +10,11 @@ stationary_data(ts)
 \item{ts}{A univariate time series of class 'ts' object.}
 }
 \value{
-Print a character string.
+A logical TRUE/FALSE object.
 }
 \description{
-This function allows to verify if the time series is stationary or it is
-integrated of order 1 or higher than 1.
+This function allows to verify if the time series is stationary
+or not (consider first differences).
 }
 \examples{
 dataset<-data.frame(...)

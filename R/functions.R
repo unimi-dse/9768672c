@@ -32,7 +32,7 @@ import_data <- function(){
 #'
 #' @examples
 #' data_barplotly(func=sum, title='Barplot of dataset', xname='X-axe', yname='Y-axe')
-#' @import magrittr dplyr ggplot2 plotly
+#' @import magrittr dplyr ggplot2
 
 
 barplotly_func <- function(dataset=NULL,func,main='Barplot', xname='Countries',yname='Number of sales'){
@@ -194,12 +194,12 @@ ts_datastats <- function(dataset=NULL,start_date=c(2013,3),end_date=c(2019,4)){
 
 #' To verify the order of integration of a time series
 #'
-#' @description This function allows to verify if the time series is stationary or it is
-#' integrated of order 1 or higher than 1.
+#' @description This function allows to verify if the time series is stationary
+#' or not (consider first differences).
 #'
 #' @param ts A univariate time series of class 'ts' object.
 #'
-#' @return Print a character string.
+#' @return A logical TRUE/FALSE object.
 #' @export
 #'
 #' @examples
@@ -209,21 +209,12 @@ ts_datastats <- function(dataset=NULL,start_date=c(2013,3),end_date=c(2019,4)){
 
 
 stationary_data<-function(ts){
-  c=0
   stat_test<-tseries::adf.test(ts, alternative="stationary")
-  if(stat_test$p.value<0.05){
-    print("THE TIME SERIES IS STATIONARY")
-  }
-  else if(stat_test$p.value>0.05){
-    while (stat_test$p.value>0.05){
-      c=c+1
-      data_diff<-diff(ts,1)
-      stat_test<-tseries::adf.test(data_diff, alternative='stationary')
-    }
-    sprintf("THE ORDER OF INTEGRATION IS %d",c)
-  }
+  if(stat_test$p.value<0.05)
+    return(TRUE)
+  else(stat_test$p.value>0.05)
+    return(FALSE)
 }
-
 
 #' To select automatically the best ARIMA model for a specified time series
 #'
